@@ -1,0 +1,255 @@
+body {
+    margin: 0;
+    background-image: linear-gradient(100deg, #122834, #26485A, #53909A);
+}
+
+.content {
+    width: 100%;
+    height: auto;
+    background-color: transparent;
+}
+.navbar{
+    width: 100%;
+    height: 7vh;
+    background-color: rgba(277, 277, 277, 0.1);
+    box-shadow: 1px 1px 10px 1px;
+    display: flex;
+    position: fixed;
+    justify-content: center;
+}
+
+.typs {
+    background-color: transparent;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+    height: 7vh;
+    display:flex;
+    justify-content: start;
+    align-items: center;
+
+}
+.typs button {
+    background-color: transparent;
+    padding-inline: 1vh;
+    height: 100%;
+    font-size: 1.9vh;
+    border: none;
+    cursor: pointer;
+}
+.typs button:hover {
+    transition: 0.5s;
+    color: white;
+    background-color: #122834;
+    border-bottom: 4px solid white;
+}
+#en-us {
+    display: none;
+}
+#pt-br {
+    display: auto;
+}
+#alertCopyEmoji{
+    position: fixed;
+    height: 5vh;
+    background-color: #26485A;
+    left: 50%;
+    top: -8vh;
+    border-left: 0.7vh solid green;
+    border-bottom: 0.1vh solid green;
+    border-top: 0.1vh solid green;
+    border-right: 0.1vh solid green;
+    text-align: start;
+    display: flex;
+    align-items: center;
+    color: black;
+    box-shadow: 0vh 0vh 2vh 0.3vh black;
+    padding-inline: 2vh;
+
+}
+.midia {
+    background-color: transparent;
+    width: 40%;
+    height: 7vh;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.lang{
+    padding-inline: 1vh;
+    height: 7vh;
+}
+.lang button {
+    height: 7vh;
+    width: 13vh;
+    padding-left: 5vh;
+    background-color: transparent;
+    background-size: 4vh;
+    background-repeat: no-repeat;
+    background-position: 1.6vh;
+    font-size: 1.9vh;
+    border: none;
+    cursor: pointer;
+}
+.lang button:hover {
+    transition: 0.5s;
+    color: white;
+    background-color: #122834;
+}
+#btnPt-br {
+    display: none;
+    background-image: url(./icons/pt-br.ico);
+}
+#btnEn-us {
+    display: none;
+    background-image: url(./icons/en-us.ico);
+}
+.social{
+    padding-inline: 1vh;
+    height: 7vh;
+}
+.social button {
+    background-color: transparent;
+    height: 7vh;
+    padding-inline: 1vh;
+    font-size: 1.9vh;
+    border: none;
+    cursor: pointer;
+}
+.alert{
+    position:fixed;
+    display: block;
+    height: 10vh;
+    background-color: #26485A;
+    border: 1px solid black;
+    padding: 1vh;
+    border-radius: 3vh;
+    top: -20vh;
+    left: 50%;
+    transform: translate(-50%);
+    font-size: 3vh;
+}
+.alert div{
+    display: flex;
+    justify-content: center;
+    height: 5vh;
+    align-items: last baseline;
+}
+
+.confirm {
+    background-color: green;
+    cursor: pointer;
+    border-radius: 1vh;
+    padding-inline: 1vh;
+    margin-right: 5vh;
+    border: 1px solid black;
+    color: black;
+}
+.notconfirm {
+    margin-left: 3vh;
+    background-color: red;
+    border: 1px solid black;
+    cursor: pointer;
+    border-radius: 1vh;
+    padding-inline: 1vh;
+    color: black;
+}
+
+
+.social button:hover {
+    transition: 0.5s;
+    background-color: #122834;
+    border-bottom: 1px solid white;
+}
+.social button:hover img {
+    transition: 0.5s;
+    filter: invert(100%);
+}
+.social img {
+    height: 4vh;
+}
+#partilhar{
+    position:fixed;
+    display: none;
+    background-color: #26485A;
+    border: 1px solid black;
+    padding: 1vh;
+    border-radius: 5px;
+    top: 0vh;
+    right: 50%;
+}
+.center{
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    display: flex;
+}
+.titles {
+    font-size: 5vh;
+    text-align: center;
+    width: 100%;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    
+}
+.top {
+    padding-top: 9vh;
+}
+.emojis {
+    background-color: #122834;
+    width: 70%;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+}
+.emoji-btn {
+    cursor: pointer;
+    border: 1px solid transparent;
+    margin-inline: 3vh;
+    background-color: transparent;
+    padding-inline: 1vh;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    font-size: 5vh;
+}
+.emoji-btn:hover {
+    border: 1px solid white;
+}
+
+@media screen and (min-width: 100px) and (max-width: 750px) { 
+   .content{
+    background-color: transparent;
+   }
+
+   .midia {
+    background-color: transparent;
+    position: fixed;
+    bottom: 21vh;
+    right: 1vh;
+    width: 7vh;
+   }
+   .social{
+    width: 2vh;
+    position: fixed;
+    display: grid;
+    background-color: transparent;
+    padding-inline: none;
+   }
+   .emojis {
+    background-color: transparent;
+    width: auto;
+    margin-left: 5vh;
+    margin-right: 5vh;
+   }
+   .emoji-btn {
+    padding-inline: 0vh;
+   }
+   .alert{
+    top: -20vh;
+   }
+   .typs{
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+   }
+   .typs button {
+    color: white;
+   }
+}
