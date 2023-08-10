@@ -164,15 +164,60 @@ function copyemoji(value) {
     }
     
 }
+// verificar se carregou a pagina 
+function checkLoad(){
+    loadPeople();
+    LoadFaces();
+    LoadSignal();
+    LoadAnimals();
+    LoadNature();
+    LoadCelebrations();
+    LoadObjects();
+    LoadFoods();
+    LoadTrnasport();
+    LoadLocations();
+    LoadSymbols();
+}
+// criar botões emoji e função para copiar emojis
+function loadPeople(){
+    var emoji = ['👩', '👩', '👨', '🧑', '👧', '👦', '🧒', '👨‍🦰', '👩‍🦰', '🧓', '👴',
+    '👵', '👶', '🧑‍🦰', '👩‍🦱', '👨‍🦱', '🧑‍🦱', '👩‍🦲', '👨‍🦲', '👱‍♂️', '👱‍♀️', '🧑‍🦳', '👨‍🦳', '👩‍🦳',
+    '🧑‍🦲', '👱', '👸', '🤴', '🫅', '👳‍♀️', '👳‍♂️', '👼', '🧔‍♀️', '🧔‍♂️', '🧔', '👲', '👳',
+    '🤶', '🎅', '🧑‍🎄', '👮‍♀️', '👮‍♂️', '👮', '💂', '💂‍♂️', '💂‍♀️', '🕵️', '🕵️‍♂️', '🕵️‍♀️', '🥷',
+    '👷‍♀️', '👷‍♂️', '👷', '👩‍⚕️', '👨‍⚕️', '👨‍🏫', '👩‍🏫', '🧑‍🎓', '👨‍🎓', '👩‍🎓', '🧑‍⚕️', '🧑‍🏫', '👩‍⚖️',
+    '👨‍⚖️', '🧑‍⚖️', '👩‍🌾', '👨‍🌾', '👨‍🔧', '👩‍🔧', '🧑‍🍳', '👨‍🍳', '👩‍🍳', '🧑‍🌾', '🧑‍🔧', '👩‍🏭', '👨‍🏭',
+    '🧑‍🏭', '👩‍💼', '👨‍💼', '👨‍💻', '👩‍💻', '🧑‍🔬', '👨‍🔬', '👩‍🔬', '🧑‍💼', '🧑‍💻', '👩‍🎤', '👨‍🎤', '🧑‍🎤',
+    '👩‍🎨', '👨‍🎨', '👨‍🚀', '👩‍🚀', '🧑‍✈️', '👨‍✈️', '👩‍✈️', '🧑‍🎨', '👰‍♂️', '🧑‍🚀', '👩‍🚒', '👰', '👨‍🚒',
+    '🤵‍♀️', '🤵‍♂️', '🧑‍🚒', '🧕', '🤵', '🤱', '👰‍♀️', '🫄', '🫃', '🤰', '🧑‍🍼', '👨‍🍼', '👩‍🍼',
+    '🦸‍♀️', '🦸‍♂️', '🦸', '🦹‍♀️', '🦹‍♂️', '🦹', '🧚', '🧚‍♀️', '🧚‍♂️', '🧙', '🧙‍♂️', '🧙‍♀️', '🧛‍♀️',
+    '🧛‍♂️', '🧛', '🧜‍♀️', '🧜‍♂️', '🧜', '🙍', '🙍‍♂️', '🙍‍♀️', '🧝', '🧝‍♂️', '🧝‍♀️', '🙎‍♀️', '🙎‍♂️',
+    '🙎', '🙅‍♀️', '🙅‍♂️', '🙅', '🧏', '🧏‍♂️', '🧏‍♀️', '🙆', '🙆‍♂️', '🙆‍♀️', '💁‍♀️', '💁‍♂️', '💁',
+    '🙋‍♀️', '🙋‍♂️', '🙋', '🤦', '🤦‍♂️', '🤦‍♀️', '🙇', '🙇‍♂️', '🙇‍♀️', '🤷‍♀️', '🤷‍♂️', '🤷', '💆‍♀️',
+    '💆‍♂️', '💆', '🧖', '🧖‍♂️', '🧖‍♀️', '💇', '💇‍♂️', '💇‍♀️', '🤹‍♀️', '🤹‍♂️', '🤹', '👩‍🦽', '👨‍🦽',
+    '🧑‍🦽', '🧑‍🦯', '👨‍🦯', '👩‍🦯', '🧑‍🦼', '👨‍🦼', '👩‍🦼', '🧎‍♀️', '🧎‍♂️', '🧎', '🧍‍♀️', '🧍‍♂️', '🧍',
+    '🏃', '🏃‍♂️', '🏃‍♀️', '🚶', '🚶‍♂️', '🚶‍♀️', '💃', '🕺', '🧗‍♀️', '🧗‍♂️', '🧗', '🧘‍♀️', '🏇',
+    '🕴️', '🛌', '🛀', '🧘', '🧘‍♂️', '🏂', '🏌️‍♀️', '🏌️‍♂️', '🏌️', '🏄‍♀', '🏄‍♂️', '🏊‍♂️', '🏊‍♀️',
+    '🚣', '🚣‍♂️', '🚣‍♀️', '🏄', '🏊', '🤽‍♀️', '🤽‍♂️', '🤽', '🤾‍♀️', '🤾‍♂️', '🏋️‍♂️', '🏋️‍♀️', '⛹️',
+    '⛹️‍♂️', '⛹️‍♀️', '🤾', '🏋️', '🚴‍♀️', '🚴‍♂️', '🚴', '🚵‍♀️', '🚵‍♂️', '🤸', '🤸‍♂️', '🤸‍♀️', '🚵',
+    '🤼‍♀️', '🤼‍♂️', '🤼', '👯‍♀️', '👯', '👯‍♂️', '💑', '💏', '👪', '👨‍👩‍👧‍👦', '👩‍👦', '👩‍👧‍👦', '🧑‍🤝‍🧑']
+// ','
+    var i = 0
+    var total = emoji.length - 1;
+    var loc = document.getElementById('peopleEmoji')
+    while (i <= total) {
+       //console.log("ID: " + i + " Emoji" + emoji[i] + " Total: " + emoji.length)
 
-// Criar a sintax dos botoes de emojis na pagina test!
-function loadingEmoji(value) {
-    LoadFaces()
-    LoadAnimals()
-    Loadpeople()
-    LoadCelebrations()
-    LoadObjects()
-    LoadFoods()
+        var btn = document.createElement("button");
+        var id = 'face' + i;
+        btn.id = id;
+        btn.className= "emoji-btn"
+        btn.value = emoji[i];
+        loc.appendChild(btn);    
+        document.getElementById(id).innerHTML = `<a onclick="copyemoji('${emoji[i]}')"> ${emoji[i]}</a>`;
+        i++
+    }
+
+
 }
 function LoadFaces() {
     var emoji = [
@@ -192,76 +237,40 @@ function LoadFaces() {
 
     var i = 0
     var total = emoji.length - 1;
+    var loc = document.getElementById('facesEmoji')
     while (i <= total) {
-        console.log("ID: " + i + " Emoji" + emoji[i] + " Total: " + emoji.length)
+        //console.log("ID: " + i + " Emoji" + emoji[i] + " Total: " + emoji.length)
 
-        var divNova = document.createElement("div");
-        var conteudoNovo = document.createTextNode("<button class='emoji-btn' onclick='copyemoji(" + '"' + emoji[i] + '"' + ")' >" + emoji[i] + "</button>");
-        divNova.appendChild(conteudoNovo); //adiciona o nó de texto à nova div criada
-
-        // adiciona o novo elemento criado e seu conteúdo ao DOM
-        var divAtual = document.getElementById("div1");
-        document.body.insertBefore(divNova, divAtual);
+        var btn = document.createElement("button");
+        var id = 'faces' + i;
+        btn.id = id;
+        btn.className= "emoji-btn"
+        btn.value = emoji[i];
+        loc.appendChild(btn);    
+        document.getElementById(id).innerHTML = `<a onclick="copyemoji('${emoji[i]}')"> ${emoji[i]}</a>`;
         i++
     }
 }
-function Loadpeople() {
-    var emoji = ['👩', '👩', '👨', '🧑', '👧', '👦', '🧒', '👨‍🦰', '👩‍🦰', '🧓', '👴',
-        '👵', '👶', '🧑‍🦰', '👩‍🦱', '👨‍🦱', '🧑‍🦱', '👩‍🦲', '👨‍🦲', '👱‍♂️', '👱‍♀️', '🧑‍🦳', '👨‍🦳', '👩‍🦳',
-        '🧑‍🦲', '👱', '👸', '🤴', '🫅', '👳‍♀️', '👳‍♂️', '👼', '🧔‍♀️', '🧔‍♂️', '🧔', '👲', '👳',
-        '🤶', '🎅', '🧑‍🎄', '👮‍♀️', '👮‍♂️', '👮', '💂', '💂‍♂️', '💂‍♀️', '🕵️', '🕵️‍♂️', '🕵️‍♀️', '🥷',
-        '👷‍♀️', '👷‍♂️', '👷', '👩‍⚕️', '👨‍⚕️', '👨‍🏫', '👩‍🏫', '🧑‍🎓', '👨‍🎓', '👩‍🎓', '🧑‍⚕️', '🧑‍🏫', '👩‍⚖️',
-        '👨‍⚖️', '🧑‍⚖️', '👩‍🌾', '👨‍🌾', '👨‍🔧', '👩‍🔧', '🧑‍🍳', '👨‍🍳', '👩‍🍳', '🧑‍🌾', '🧑‍🔧', '👩‍🏭', '👨‍🏭',
-        '🧑‍🏭', '👩‍💼', '👨‍💼', '👨‍💻', '👩‍💻', '🧑‍🔬', '👨‍🔬', '👩‍🔬', '🧑‍💼', '🧑‍💻', '👩‍🎤', '👨‍🎤', '🧑‍🎤',
-        '👩‍🎨', '👨‍🎨', '👨‍🚀', '👩‍🚀', '🧑‍✈️', '👨‍✈️', '👩‍✈️', '🧑‍🎨', '👰‍♂️', '🧑‍🚀', '👩‍🚒', '👰', '👨‍🚒',
-        '🤵‍♀️', '🤵‍♂️', '🧑‍🚒', '🧕', '🤵', '🤱', '👰‍♀️', '🫄', '🫃', '🤰', '🧑‍🍼', '👨‍🍼', '👩‍🍼',
-        '🦸‍♀️', '🦸‍♂️', '🦸', '🦹‍♀️', '🦹‍♂️', '🦹', '🧚', '🧚‍♀️', '🧚‍♂️', '🧙', '🧙‍♂️', '🧙‍♀️', '🧛‍♀️',
-        '🧛‍♂️', '🧛', '🧜‍♀️', '🧜‍♂️', '🧜', '🙍', '🙍‍♂️', '🙍‍♀️', '🧝', '🧝‍♂️', '🧝‍♀️', '🙎‍♀️', '🙎‍♂️',
-        '🙎', '🙅‍♀️', '🙅‍♂️', '🙅', '🧏', '🧏‍♂️', '🧏‍♀️', '🙆', '🙆‍♂️', '🙆‍♀️', '💁‍♀️', '💁‍♂️', '💁',
-        '🙋‍♀️', '🙋‍♂️', '🙋', '🤦', '🤦‍♂️', '🤦‍♀️', '🙇', '🙇‍♂️', '🙇‍♀️', '🤷‍♀️', '🤷‍♂️', '🤷', '💆‍♀️',
-        '💆‍♂️', '💆', '🧖', '🧖‍♂️', '🧖‍♀️', '💇', '💇‍♂️', '💇‍♀️', '🤹‍♀️', '🤹‍♂️', '🤹', '👩‍🦽', '👨‍🦽',
-        '🧑‍🦽', '🧑‍🦯', '👨‍🦯', '👩‍🦯', '🧑‍🦼', '👨‍🦼', '👩‍🦼', '🧎‍♀️', '🧎‍♂️', '🧎', '🧍‍♀️', '🧍‍♂️', '🧍',
-        '🏃', '🏃‍♂️', '🏃‍♀️', '🚶', '🚶‍♂️', '🚶‍♀️', '💃', '🕺', '🧗‍♀️', '🧗‍♂️', '🧗', '🧘‍♀️', '🏇',
-        '🕴️', '🛌', '🛀', '🧘', '🧘‍♂️', '🏂', '🏌️‍♀️', '🏌️‍♂️', '🏌️', '🏄‍♀', '🏄‍♂️', '🏊‍♂️', '🏊‍♀️',
-        '🚣', '🚣‍♂️', '🚣‍♀️', '🏄', '🏊', '🤽‍♀️', '🤽‍♂️', '🤽', '🤾‍♀️', '🤾‍♂️', '🏋️‍♂️', '🏋️‍♀️', '⛹️',
-        '⛹️‍♂️', '⛹️‍♀️', '🤾', '🏋️', '🚴‍♀️', '🚴‍♂️', '🚴', '🚵‍♀️', '🚵‍♂️', '🤸', '🤸‍♂️', '🤸‍♀️', '🚵',
-        '🤼‍♀️', '🤼‍♂️', '🤼', '👯‍♀️', '👯', '👯‍♂️', '💑', '💏', '👪', '👨‍👩‍👧‍👦', '👩‍👦', '👩‍👧‍👦', '🧑‍🤝‍🧑']
-    // ','
-
-    var i = 0
-    var total = emoji.length - 1;
-    while (i <= total) {
-        console.log("ID: " + i + " Emoji" + emoji[i] + " Total: " + emoji.length)
-
-        var divNova = document.createElement("div");
-        var conteudoNovo = document.createTextNode("<button class='emoji-btn' onclick='copyemoji(" + '"' + emoji[i] + '"' + ")' >" + emoji[i] + "</button>");
-        divNova.appendChild(conteudoNovo); //adiciona o nó de texto à nova div criada
-
-        // adiciona o novo elemento criado e seu conteúdo ao DOM
-        var divAtual = document.getElementById("div1");
-        document.body.insertBefore(divNova, divAtual);
-        i++
-    }
-}
-function Loadsignal() {
+function LoadSignal() {
     var emoji = ['🤳', '💪', '👃', '🦻', '👂', '🦶', '🦵', '👈', '👉', '☝️', '🫵', '👆', '👇',
-        '🫲', '🫱', '🖖', '🫰', '🤞', '✌️', '🫳', '🫴', '🤘', '🤙', '🖐️', '✋', '👊',
-        '✊', '👎', '👍', '🤌', '👌', '🤛', '🤜', '🤚', '👋', '🤟', '✍️', '🙏', '🤲',
-        '🫶', '🙌', '👐', '👏', '💅']
+    '🫲', '🫱', '🖖', '🫰', '🤞', '✌️', '🫳', '🫴', '🤘', '🤙', '🖐️', '✋', '👊',
+    '✊', '👎', '👍', '🤌', '👌', '🤛', '🤜', '🤚', '👋', '🤟', '✍️', '🙏', '🤲',
+    '🫶', '🙌', '👐', '👏', '💅']
     // ','
 
     var i = 0
     var total = emoji.length - 1;
+    var loc = document.getElementById('SignalEmoji')
     while (i <= total) {
-        console.log("ID: " + i + " Emoji" + emoji[i] + " Total: " + emoji.length)
+        //console.log("ID: " + i + " Emoji" + emoji[i] + " Total: " + emoji.length)
 
-        var divNova = document.createElement("div");
-        var conteudoNovo = document.createTextNode("<button class='emoji-btn' onclick='copyemoji(" + '"' + emoji[i] + '"' + ")' >" + emoji[i] + "</button>");
-        divNova.appendChild(conteudoNovo); //adiciona o nó de texto à nova div criada
-
-        // adiciona o novo elemento criado e seu conteúdo ao DOM
-        var divAtual = document.getElementById("div1");
-        document.body.insertBefore(divNova, divAtual);
+        var btn = document.createElement("button");
+        var id = 'signal' + i;
+        btn.id = id;
+        btn.className= "emoji-btn"
+        btn.value = emoji[i];
+        loc.appendChild(btn);    
+        document.getElementById(id).innerHTML = `<a onclick="copyemoji('${emoji[i]}')"> ${emoji[i]}</a>`;
         i++
     }
 }
@@ -276,18 +285,20 @@ function LoadAnimals() {
         '🦐', '🐡', '🐠', '🐟', '🦞', '🦀', '🐚', '🪸', '🦆', '🐓', '🦩', '🦜', '🦢', '🕊️',
         '🦅', '🦃', '🦚', '🦉', '🦤', '🐦', '🐧', '🐌', '🦋', '🪶', '🦇', '🐣', '🐤',
         '🐥', '🐛', '🦟', '🪰', '🪱', '🦗', '🐜', '🕷️', '🦂', '🐞', '🪲', '🐝', '🪳', '🕸️']
+
     var i = 0
     var total = emoji.length - 1;
+    var loc = document.getElementById('AnimalsEmoji')
     while (i <= total) {
-        console.log("ID: " + i + " Emoji" + emoji[i] + " Total: " + emoji.length)
+        //console.log("ID: " + i + " Emoji" + emoji[i] + " Total: " + emoji.length)
 
-        var divNova = document.createElement("div");
-        var conteudoNovo = document.createTextNode("<button class='emoji-btn' onclick='copyemoji(" + '"' + emoji[i] + '"' + ")' >" + emoji[i] + "</button>");
-        divNova.appendChild(conteudoNovo); //adiciona o nó de texto à nova div criada
-
-        // adiciona o novo elemento criado e seu conteúdo ao DOM
-        var divAtual = document.getElementById("div1");
-        document.body.insertBefore(divNova, divAtual);
+        var btn = document.createElement("button");
+        var id = 'Aniamls' + i;
+        btn.id = id;
+        btn.className= "emoji-btn"
+        btn.value = emoji[i];
+        loc.appendChild(btn);    
+        document.getElementById(id).innerHTML = `<a onclick="copyemoji('${emoji[i]}')"> ${emoji[i]}</a>`;
         i++
     }
 }
@@ -298,19 +309,21 @@ function LoadNature() {
         '🌗', ' 🌘', ' 🌑', ' 🌒 ', '🌓', ' 🌔', '🌙 ', '🌎', ' 🌍 ', '🌏 ', '🪐 ', '💫', ' ⭐️',
         '🌟 ', '✨ ', '⚡️ ', '☄️ ', '💥 ', '🔥 ', '🌈', '☀️', '🌤️', '⛅️', '☁️', '🌦️', '🌥️', '🌧️',
         '☁️', '⛅', '🌨️', '🌩️', '🌪️', '🌫️', ' ❄️ ', '☃️', ' ⛄️ ', ' 💨 ', '💧 ', '💦 ', '🫧',
-        ' ☔️', ' ☂️ ', '🌊',]
+        ' ☔️', ' ☂️ ', '🌊']
+
     var i = 0
     var total = emoji.length - 1;
+    var loc = document.getElementById('NatureEmoji')
     while (i <= total) {
-        console.log("ID: " + i + " Emoji" + emoji[i] + " Total: " + emoji.length)
+        //console.log("ID: " + i + " Emoji" + emoji[i] + " Total: " + emoji.length)
 
-        var divNova = document.createElement("div");
-        var conteudoNovo = document.createTextNode("<button class='emoji-btn' onclick='copyemoji(" + '"' + emoji[i] + '"' + ")' >" + emoji[i] + "</button>");
-        divNova.appendChild(conteudoNovo); //adiciona o nó de texto à nova div criada
-
-        // adiciona o novo elemento criado e seu conteúdo ao DOM
-        var divAtual = document.getElementById("div1");
-        document.body.insertBefore(divNova, divAtual);
+        var btn = document.createElement("button");
+        var id = 'aniamls' + i;
+        btn.id = id;
+        btn.className= "emoji-btn"
+        btn.value = emoji[i];
+        loc.appendChild(btn);    
+        document.getElementById(id).innerHTML = `<a onclick="copyemoji('${emoji[i]}')"> ${emoji[i]}</a>`;
         i++
     }
 }
@@ -318,37 +331,40 @@ function LoadCelebrations() {
     var emoji = ['🎇', '🎈', '🎆', '🎇', '🧨', '✨', '🎉',
         '🎊', '🎃', '🎄', '🎋', '🎍', '🎎', '🎁', '🎀', '🧧',
         '🎑', '🎐', '🎏', '🎗️', '🎪']
+
     var i = 0
     var total = emoji.length - 1;
+    var loc = document.getElementById('celebrationsEmoji')
     while (i <= total) {
-        console.log("ID: " + i + " Emoji" + emoji[i] + " Total: " + emoji.length)
+        //console.log("ID: " + i + " Emoji" + emoji[i] + " Total: " + emoji.length)
 
-        var divNova = document.createElement("div");
-        var conteudoNovo = document.createTextNode("<button class='emoji-btn' onclick='copyemoji(" + '"' + emoji[i] + '"' + ")' >" + emoji[i] + "</button>");
-        divNova.appendChild(conteudoNovo); //adiciona o nó de texto à nova div criada
-
-        // adiciona o novo elemento criado e seu conteúdo ao DOM
-        var divAtual = document.getElementById("div1");
-        document.body.insertBefore(divNova, divAtual);
+        var btn = document.createElement("button");
+        var id = 'celebrations' + i;
+        btn.id = id;
+        btn.className= "emoji-btn"
+        btn.value = emoji[i];
+        loc.appendChild(btn);    
+        document.getElementById(id).innerHTML = `<a onclick="copyemoji('${emoji[i]}')"> ${emoji[i]}</a>`;
         i++
     }
 }
-function LoadObjects() {
-     var emoji = ['🥼', '🎞️', '🎟️', '🎫', '🛝', '🎨', '🖼️', '🎭', '🎪', '🎢', '🎡', '🧵', '🪡', '🧶', '🪢', '🛒', '👓', '👔', '🧦', '🧥', '🧤', '🥼', '🧣', '🩳', '🥽', '🦺', '🕶️', '👕', '👖', '👗', '🥻', '👘', '👚', '🩲', '🩱', '🎒', '🛍️', '👝', '👜', '👛', '👙', '🩴', '👞', '👟', '🥾', '🥿', '👠', '👡', '👢', '🩰', '👑', '🧢', '🪖', '⛑️', '👒', '🎩', '🎓', '💋', '💄', '💍', '💎', '⚽', '⚾', '🥎', '🏀', '🏐', '🏈', '🏉', '🎱', '🎳','🥌','⛳','⛸️','🎣','🤿','🎽','🛶','🎿','🛷','🥅','🏒','🥍','🏏','🏑','🏓','🏸','🥏','🎾','🪁','🎯','🥊','🥋','🥇','🥈','🥉','🏅','🎖️','🏆','🎮','🎰','🕹️','🎲','🔮','🪄','🧿','🪬','🧩','🪅','🪩','🪆','🪀','🎴','🃏','🀄','♟️','♠️','♣️','♥️','♦️','🔈','🔉','🔊','📢','📣','🔔','🎼','🎵','🎶','🎙️','🎤','🎚️','🎛️','🎧','📯','🥁','🪘','🎷','🪗','🎺','🎸','🪕','🎻','🎹','📻','🔒','🔓','🔏','🔐','🔑','🗝️','🪓','🔨','⛏️','⚒️','🛠️','🔧','🪛','🔩','🧱','🪨','🪵','🛖','⚙️','🗜️','🛢️','⚗️','🧪','🧫','🧬','🩺','🩸','🩹','🩼','💊','🔬','🔭','⚖️','📿','🔗','⛓️','🪝','🧰','🧲','🪜','🦯','🛡️','🪚','🏹','🗡️','⚔️','🔪','🫙','💣','🔫','🪃','☎️','📟','📠','📱','📲','📳','📴','♂️','♀️','⚧️','🪧','🗿','⚱️','⚰️','🚬','🪪','🔋','🪫','🔌','💻','🖥️','💾','💽','🖲️','🖱️','⌨️','🖨️','💿','📀','🧮','🎥','🎬','📽️','📼','📹','📸','📷','📺','📡','🔍','🔎','🕯️','🪔','💡','🔦','📘','📗','📖','📕','📔','🏮','📙','📚','📓','📒','📃','📜','🏷️','🔖','🗞️','📰','📑','📄','💰','🪙','💴','💵','💶','💷','📧','✉️','🏧','🧾','💳','💸','📨','📩','📤','📥','📦','📫','✏️','🗳️','📮','📭','📬','📪','✒️','🖋️','🖊️','🖌️','🖍️','📝','📅','🗂️','📂','📁','💼','🗒️','🗒️','🗓️','📇','📉','📊','📈','📏','🖇️','📎','📍','📌','📋','📐','✂️','🗃️','🗄️','🗑️','⌛','🕰️','⏲️','⏱️','⏰','⌚','⏳']
-    var i = 0
-    var total = emoji.length - 1;
-    while (i <= total) {
-        console.log("ID: " + i + " Emoji" + emoji[i] + " Total: " + emoji.length)
-
-        var divNova = document.createElement("div");
-        var conteudoNovo = document.createTextNode("<button class='emoji-btn' onclick='copyemoji(" + '"' + emoji[i] + '"' + ")' >" + emoji[i] + "</button>");
-        divNova.appendChild(conteudoNovo); //adiciona o nó de texto à nova div criada
-
-        // adiciona o novo elemento criado e seu conteúdo ao DOM
-        var divAtual = document.getElementById("div1");
-        document.body.insertBefore(divNova, divAtual);
-        i++
-    }
+function LoadObjects(){
+     var emoji = ['🎞️', '🎟️', '🎫', '🛝', '🎨', '🖼️', '🎭', '🎪', '🎢', '🎡', '🧵', '🪡', '🧶', '🪢', '🛒', '👓', '👔', '🧦', '🧥', '🧤', '🥼', '🧣', '🩳', '🥽', '🦺', '🕶️', '👕', '👖', '👗', '🥻', '👘', '👚', '🩲', '🩱', '🎒', '🛍️', '👝', '👜', '👛', '👙', '🩴', '👞', '👟', '🥾', '🥿', '👠', '👡', '👢', '🩰', '👑', '🧢', '🪖', '⛑️', '👒', '🎩', '🎓', '💋', '💄', '💍', '💎', '⚽', '⚾', '🥎', '🏀', '🏐', '🏈', '🏉', '🎱', '🎳','🥌','⛳','⛸️','🎣','🤿','🎽','🛶','🎿','🛷','🥅','🏒','🥍','🏏','🏑','🏓','🏸','🥏','🎾','🪁','🎯','🥊','🥋','🥇','🥈','🥉','🏅','🎖️','🏆','🎮','🎰','🕹️','🎲','🔮','🪄','🧿','🪬','🧩','🪅','🪩','🪆','🪀','🎴','🃏','🀄','♟️','♠️','♣️','♥️','♦️','🔈','🔉','🔊','📢','📣','🔔','🎼','🎵','🎶','🎙️','🎤','🎚️','🎛️','🎧','📯','🥁','🪘','🎷','🪗','🎺','🎸','🪕','🎻','🎹','📻','🔒','🔓','🔏','🔐','🔑','🗝️','🪓','🔨','⛏️','⚒️','🛠️','🔧','🪛','🔩','🧱','🪨','🪵','🛖','⚙️','🗜️','🛢️','⚗️','🧪','🧫','🧬','🩺','🩸','🩹','🩼','💊','🔬','🔭','⚖️','📿','🔗','⛓️','🪝','🧰','🧲','🪜','🦯','🛡️','🪚','🏹','🗡️','⚔️','🔪','🫙','💣','🔫','🪃','☎️','📟','📠','📱','📲','📳','📴','♂️','♀️','⚧️','🪧','🗿','⚱️','⚰️','🚬','🪪','🔋','🪫','🔌','💻','🖥️','💾','💽','🖲️','🖱️','⌨️','🖨️','💿','📀','🧮','🎥','🎬','📽️','📼','📹','📸','📷','📺','📡','🔍','🔎','🕯️','🪔','💡','🔦','📘','📗','📖','📕','📔','🏮','📙','📚','📓','📒','📃','📜','🏷️','🔖','🗞️','📰','📑','📄','💰','🪙','💴','💵','💶','💷','📧','✉️','🏧','🧾','💳','💸','📨','📩','📤','📥','📦','📫','✏️','🗳️','📮','📭','📬','📪','✒️','🖋️','🖊️','🖌️','🖍️','📝','📅','🗂️','📂','📁','💼','🗒️','🗒️','🗓️','📇','📉','📊','📈','📏','🖇️','📎','📍','📌','📋','📐','✂️','🗃️','🗄️','🗑️','⌛','🕰️','⏲️','⏱️','⏰','⌚','⏳']
+     var i = 0
+     var total = emoji.length - 1;
+     var loc = document.getElementById('objectsEmojis')
+     while (i <= total) {
+         //console.log("ID: " + i + " Emoji" + emoji[i] + " Total: " + emoji.length)
+ 
+         var btn = document.createElement("button");
+         var id = 'object' + i;
+         btn.id = id;
+         btn.className= "emoji-btn"
+         btn.value = emoji[i];
+         loc.appendChild(btn);    
+         document.getElementById(id).innerHTML = `<a onclick="copyemoji('${emoji[i]}')"> ${emoji[i]}</a>`;
+         i++
+     }
 }
 function LoadFoods() { 
     var emoji = ['🍕','🍏',' 🍎',' 🍐',' 🍊',' 🍋',' 🍌',' 🍉',' 🍇 ','🍓 ','🫐',' 🍈 ','🍒',' 🍑',' 🥭',
@@ -358,57 +374,60 @@ function LoadFoods() {
     '🍘 ','🍥 ','🥠 ','🥮 ','🍢 ','🍡 ','🍧 ','🍨',' 🍦',' 🥧',' 🧁 ','🍰 ','🎂 ','🍮 ','🍭',' 🍬 ','🍫',' 🍿 ','🍩 ','🍪 ','🌰 ',
     '🥜',' 🍯 ','🥛 ','🍼 ','🫖 ','☕️',' 🍵',' 🧃',' 🥤 ','🧋',' 🫙',' 🍶 ','🍺',' 🍻',' 🥂',' 🍷 ','🫗 ','🥃 ','🍸 ','🍹 ','🧉',
     ' 🍾',' 🧊 ','🥄 ','🍴 ','🍽',' 🥣 ','🥡 ','🥢',' 🧂']
-    var i = 0
-    var total = emoji.length - 1;
-    while (i <= total) {
-        console.log("ID: " + i + " Emoji" + emoji[i] + " Total: " + emoji.length)
-
-        var divNova = document.createElement("div");
-        var conteudoNovo = document.createTextNode("<button class='emoji-btn' onclick='copyemoji(" + '"' + emoji[i] + '"' + ")' >" + emoji[i] + "</button>");
-        divNova.appendChild(conteudoNovo); //adiciona o nó de texto à nova div criada
-
-        // adiciona o novo elemento criado e seu conteúdo ao DOM
-        var divAtual = document.getElementById("div1");
-        document.body.insertBefore(divNova, divAtual);
-        i++
-    }
+     var i = 0
+     var total = emoji.length - 1;
+     var loc = document.getElementById('FoodsEmojis')
+     while (i <= total) {
+         //console.log("ID: " + i + " Emoji" + emoji[i] + " Total: " + emoji.length)
+ 
+         var btn = document.createElement("button");
+         var id = 'food' + i;
+         btn.id = id;
+         btn.className= "emoji-btn"
+         btn.value = emoji[i];
+         loc.appendChild(btn);    
+         document.getElementById(id).innerHTML = `<a onclick="copyemoji('${emoji[i]}')"> ${emoji[i]}</a>`;
+         i++
+     }
 }
 function LoadTrnasport() {
     var emoji = ['🚗','🚕',' 🚙',' 🚌',' 🚎 ','🏎 ','🚓',' 🚑',' 🚒',' 🚐',' 🛻',' 🚚',' 🚛 ','🚜',' 🦯',' 🦽',' 🦼',' 🛴',' 🚲',' 🛵',' 🏍',' 🛺 ','🚨',' 🚔 ','🚍',' 🚘 ','🚖 ','🛞',' 🚡',' 🚠',' 🚟 ','🚃 ','🚋',' 🚞',' 🚝',' 🚄 ','🚅 ','🚈',' 🚂 ','🚆',' 🚇 ','🚊',' 🚉',' ✈️',' 🛫',' 🛬',' 🛩',' 💺',' 🛰',' 🚀',' 🛸',' 🚁',' 🛶',' ⛵️',' 🚤',' 🛥',' 🛳',' ⛴ ','🚢',' ⚓️',' 🛟',' 🪝',' ⛽️',' 🚧',' 🚦 ','🚥',' 🚏']
-   var i = 0
-   var total = emoji.length - 1;
-   while (i <= total) {
-       console.log("ID: " + i + " Emoji" + emoji[i] + " Total: " + emoji.length)
-
-       var divNova = document.createElement("div");
-       var conteudoNovo = document.createTextNode("<button class='emoji-btn' onclick='copyemoji(" + '"' + emoji[i] + '"' + ")' >" + emoji[i] + "</button>");
-       divNova.appendChild(conteudoNovo); //adiciona o nó de texto à nova div criada
-
-       // adiciona o novo elemento criado e seu conteúdo ao DOM
-       var divAtual = document.getElementById("div1");
-       document.body.insertBefore(divNova, divAtual);
-       i++
-   }
+    var i = 0
+    var total = emoji.length - 1;
+    var loc = document.getElementById('transportEmojis')
+    while (i <= total) {
+        //console.log("ID: " + i + " Emoji" + emoji[i] + " Total: " + emoji.length)
+ 
+        var btn = document.createElement("button");
+        var id = 'transport' + i;
+        btn.id = id;
+        btn.className= "emoji-btn"
+        btn.value = emoji[i];
+        loc.appendChild(btn);    
+        document.getElementById(id).innerHTML = `<a onclick="copyemoji('${emoji[i]}')"> ${emoji[i]}</a>`;
+        i++
+    }
 }
 function LoadLocations() {
     var emoji = ['🗺 ','🗿',' 🗽',' 🗼',' 🏰',' 🏯',' 🏟',' 🎡 ','🎢 ','🛝',' 🎠',' ⛲️',' ⛱',' 🏖 ','🏝',' 🏜 ','🌋',
      '⛰',' 🏔 ','🗻',' 🏕 ','⛺️ ','🛖','🏠',' 🏡',' 🏘',' 🏚',' 🏗',' 🏭',' 🏢',' 🏬 ','🏣',' 🏤',' 🏥',' 🏦 ','🏨',
      ' 🏪',' 🏫 ','🏩 ','💒',' 🏛 ','⛪️',' 🕌 ','🕍 ','🛕 ','🕋 ','⛩',' 🛤 ','🛣 ','🗾',' 🎑',' 🏞',' 🌅',' 🌄',
      ' 🌠',' 🎇',' 🎆',' 🌇 ','🌆',' 🏙',' 🌃 ','🌌',' 🌉',' 🌁']
-   var i = 0
-   var total = emoji.length - 1;
-   while (i <= total) {
-       console.log("ID: " + i + " Emoji" + emoji[i] + " Total: " + emoji.length)
-
-       var divNova = document.createElement("div");
-       var conteudoNovo = document.createTextNode("<button class='emoji-btn' onclick='copyemoji(" + '"' + emoji[i] + '"' + ")' >" + emoji[i] + "</button>");
-       divNova.appendChild(conteudoNovo); //adiciona o nó de texto à nova div criada
-
-       // adiciona o novo elemento criado e seu conteúdo ao DOM
-       var divAtual = document.getElementById("div1");
-       document.body.insertBefore(divNova, divAtual);
-       i++
-   }
+    var i = 0
+    var total = emoji.length - 1;
+    var loc = document.getElementById('LocationsEmojis')
+    while (i <= total) {
+        //console.log("ID: " + i + " Emoji" + emoji[i] + " Total: " + emoji.length)
+  
+        var btn = document.createElement("button");
+        var id = 'locations' + i;
+        btn.id = id;
+        btn.className= "emoji-btn"
+        btn.value = emoji[i];
+        loc.appendChild(btn);    
+        document.getElementById(id).innerHTML = `<a onclick="copyemoji('${emoji[i]}')"> ${emoji[i]}</a>`;
+        i++
+    }
 }
 function LoadSymbols() {
     var emoji = ['❤️',' 🩷',' 🧡 ','💛',' 💚',' 💙 ','🩵',' 💜',' 🖤',' 🩶',' 🤍',' 🤎 ','❤️‍🔥',' ❤️‍🩹 ','💔',' ❣️',' 💕 ',
@@ -428,18 +447,19 @@ function LoadSymbols() {
     '🔊 ','🔔 ','🔕 ','📣 ','📢 ','👁‍🗨',' 💬',' 💭',' 🗯',' ♠️',' ♣️',' ♥️',' ♦️',' 🃏',' 🎴 ','🀄️ ','🕐 ','🕑 ','🕒 ',
     '🕓 ','🕔 ','🕕',' 🕖',' 🕗 ','🕘',' 🕙 ','🕚 ','🕛 ','🕜 ','🕝 ','🕞',' 🕟',' 🕠 ','🕡 ','🕢 ','🕣 ','🕤 ',
     '🕥',' 🕦 ','🕧']
-   var i = 0
-   var total = emoji.length - 1;
-   while (i <= total) {
-       console.log("ID: " + i + " Emoji" + emoji[i] + " Total: " + emoji.length)
-
-       var divNova = document.createElement("div");
-       var conteudoNovo = document.createTextNode("<button class='emoji-btn' onclick='copyemoji(" + '"' + emoji[i] + '"' + ")' >" + emoji[i] + "</button>");
-       divNova.appendChild(conteudoNovo); //adiciona o nó de texto à nova div criada
-
-       // adiciona o novo elemento criado e seu conteúdo ao DOM
-       var divAtual = document.getElementById("div1");
-       document.body.insertBefore(divNova, divAtual);
-       i++
-   }
+    var i = 0
+    var total = emoji.length - 1;
+    var loc = document.getElementById('symbolsEmojis')
+    while (i <= total) {
+        //console.log("ID: " + i + " Emoji" + emoji[i] + " Total: " + emoji.length)
+  
+        var btn = document.createElement("button");
+        var id = 'symbols' + i;
+        btn.id = id;
+        btn.className= "emoji-btn"
+        btn.value = emoji[i];
+        loc.appendChild(btn);    
+        document.getElementById(id).innerHTML = `<a onclick="copyemoji('${emoji[i]}')"> ${emoji[i]}</a>`;
+        i++
+    }
 }
