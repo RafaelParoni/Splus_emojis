@@ -238,8 +238,8 @@ body {
    .emojis {
     background-color: transparent;
     width: auto;
-    margin-left: 5vh;
-    margin-right: 5vh;
+    justify-content: center;
+    width: 80%;
    }
    .emoji-btn {
     background-color: transparent;
