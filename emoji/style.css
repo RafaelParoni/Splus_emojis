@@ -199,6 +199,8 @@ body {
     width: 70%;
     padding-top: 1vh;
     padding-bottom: 1vh;
+    justify-content: center;
+    align-items: center;
 }
 .emoji-btn {
     cursor: pointer;
@@ -240,7 +242,9 @@ body {
     margin-right: 5vh;
    }
    .emoji-btn {
-    padding-inline: 0vh;
+    background-color: transparent;
+    padding-inline: 0;
+    margin-inline: 1vh;
    }
    .alert{
     top: -20vh;
