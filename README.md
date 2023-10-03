@@ -6,3 +6,6 @@ PT-BR | site feito com a intenção de facilitar para quem quer "copiar" os emoj
 
 Link:
 # https://splusemoji.netlify.app/
+
+
+![image](https://raw.githubusercontent.com/RafaelParoni/Splus_emojis/main/splusImg.png)
