@@ -212,8 +212,11 @@ function loadPeople(){
         btn.id = id;
         btn.className= "emoji-btn"
         btn.value = emoji[i];
+        btn.onclick = copyemoji(emoji[i])
         loc.appendChild(btn);    
-        document.getElementById(id).innerHTML = `<a onclick="copyemoji('${emoji[i]}')"> ${emoji[i]}</a>`;
+        document.getElementById(id).innerHTML = `${emoji[i]}`;
+
+        document.getElementById(`face${i}`).setAttribute('onclick', `copyemoji('${emoji[i]}')`)
         i++
     }
 
@@ -247,7 +250,9 @@ function LoadFaces() {
         btn.className= "emoji-btn"
         btn.value = emoji[i];
         loc.appendChild(btn);    
-        document.getElementById(id).innerHTML = `<a onclick="copyemoji('${emoji[i]}')"> ${emoji[i]}</a>`;
+        document.getElementById(id).innerHTML = `${emoji[i]}`;
+
+        document.getElementById(`face${i}`).setAttribute('onclick', `copyemoji('${emoji[i]}')`)
         i++
     }
 }
@@ -270,7 +275,9 @@ function LoadSignal() {
         btn.className= "emoji-btn"
         btn.value = emoji[i];
         loc.appendChild(btn);    
-        document.getElementById(id).innerHTML = `<a onclick="copyemoji('${emoji[i]}')"> ${emoji[i]}</a>`;
+        document.getElementById(id).innerHTML = `${emoji[i]}`;
+
+        document.getElementById(`face${i}`).setAttribute('onclick', `copyemoji('${emoji[i]}')`)
         i++
     }
 }
@@ -298,7 +305,9 @@ function LoadAnimals() {
         btn.className= "emoji-btn"
         btn.value = emoji[i];
         loc.appendChild(btn);    
-        document.getElementById(id).innerHTML = `<a onclick="copyemoji('${emoji[i]}')"> ${emoji[i]}</a>`;
+        document.getElementById(id).innerHTML = `${emoji[i]}`;
+
+        document.getElementById(`face${i}`).setAttribute('onclick', `copyemoji('${emoji[i]}')`)
         i++
     }
 }
@@ -323,7 +332,9 @@ function LoadNature() {
         btn.className= "emoji-btn"
         btn.value = emoji[i];
         loc.appendChild(btn);    
-        document.getElementById(id).innerHTML = `<a onclick="copyemoji('${emoji[i]}')"> ${emoji[i]}</a>`;
+        document.getElementById(id).innerHTML = `${emoji[i]}`;
+
+        document.getElementById(`face${i}`).setAttribute('onclick', `copyemoji('${emoji[i]}')`)
         i++
     }
 }
@@ -344,7 +355,9 @@ function LoadCelebrations() {
         btn.className= "emoji-btn"
         btn.value = emoji[i];
         loc.appendChild(btn);    
-        document.getElementById(id).innerHTML = `<a onclick="copyemoji('${emoji[i]}')"> ${emoji[i]}</a>`;
+        document.getElementById(id).innerHTML = `${emoji[i]}`;
+
+        document.getElementById(`face${i}`).setAttribute('onclick', `copyemoji('${emoji[i]}')`)
         i++
     }
 }
@@ -362,7 +375,9 @@ function LoadObjects(){
          btn.className= "emoji-btn"
          btn.value = emoji[i];
          loc.appendChild(btn);    
-         document.getElementById(id).innerHTML = `<a onclick="copyemoji('${emoji[i]}')"> ${emoji[i]}</a>`;
+         document.getElementById(id).innerHTML = `${emoji[i]}`;
+
+         document.getElementById(`face${i}`).setAttribute('onclick', `copyemoji('${emoji[i]}')`)
          i++
      }
 }
@@ -386,7 +401,9 @@ function LoadFoods() {
          btn.className= "emoji-btn"
          btn.value = emoji[i];
          loc.appendChild(btn);    
-         document.getElementById(id).innerHTML = `<a onclick="copyemoji('${emoji[i]}')"> ${emoji[i]}</a>`;
+         document.getElementById(id).innerHTML = `${emoji[i]}`;
+
+         document.getElementById(`face${i}`).setAttribute('onclick', `copyemoji('${emoji[i]}')`)
          i++
      }
 }
@@ -404,7 +421,9 @@ function LoadTrnasport() {
         btn.className= "emoji-btn"
         btn.value = emoji[i];
         loc.appendChild(btn);    
-        document.getElementById(id).innerHTML = `<a onclick="copyemoji('${emoji[i]}')"> ${emoji[i]}</a>`;
+        document.getElementById(id).innerHTML = `${emoji[i]}`;
+
+        document.getElementById(`face${i}`).setAttribute('onclick', `copyemoji('${emoji[i]}')`)
         i++
     }
 }
@@ -425,7 +444,9 @@ function LoadLocations() {
         btn.className= "emoji-btn"
         btn.value = emoji[i];
         loc.appendChild(btn);    
-        document.getElementById(id).innerHTML = `<a onclick="copyemoji('${emoji[i]}')"> ${emoji[i]}</a>`;
+        document.getElementById(id).innerHTML = `${emoji[i]}`;
+
+        document.getElementById(`face${i}`).setAttribute('onclick', `copyemoji('${emoji[i]}')`)
         i++
     }
 }
@@ -459,7 +480,9 @@ function LoadSymbols() {
         btn.className= "emoji-btn"
         btn.value = emoji[i];
         loc.appendChild(btn);    
-        document.getElementById(id).innerHTML = `<a onclick="copyemoji('${emoji[i]}')"> ${emoji[i]}</a>`;
+        document.getElementById(id).innerHTML = `${emoji[i]}`;
+
+        document.getElementById(`face${i}`).setAttribute('onclick', `copyemoji('${emoji[i]}')`)
         i++
     }
 }
